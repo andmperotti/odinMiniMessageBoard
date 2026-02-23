@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const ejs = require("ejs");
+const path = require("node:path");
 
-app.get("/", (req, res) => {
-  res.send("hi");
-});
+//set the engine and define the views location
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.listen(3001);

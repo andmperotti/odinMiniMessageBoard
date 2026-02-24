@@ -1,5 +1,5 @@
-const router = require("express").router;
-indexRouter = router();
+const router = require("express").Router;
+const indexRouter = router();
 
 const messages = [
   {
@@ -13,3 +13,9 @@ const messages = [
     added: new Date(),
   },
 ];
+
+indexRouter.get("/", (req, res) => {
+  res.render("index", { title: "Mini Messageboard", messages: messages });
+});
+
+module.exports = indexRouter;

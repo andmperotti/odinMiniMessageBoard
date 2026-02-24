@@ -8,11 +8,11 @@ const indexRouter = require("./routes/indexRouter");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-//use a specific router for specific route, here just a router for any root prefacing routes
-app.use("/", indexRouter);
-
 //middleware to parse form input entry data into the request
 app.use(express.urlencoded({ extended: true }));
+
+//use a specific router for specific route, here just a router for any root prefacing routes
+app.use("/", indexRouter);
 
 //set the server to run on port 3001
 app.listen(3001);

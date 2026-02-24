@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>message miniboard</title>
 </head>
 <body>
     <h1>Messages</h1>
-    <% messages.forEach(message=>{ %>
-        <section>
-            <h2><%= message.user %></h2>
-            <p><%= message.text %></p>
-            <p><%= message.added %></p>
+    <% messages.forEach((message, _, index)=>{ %>
+        <section style="margin-bottom: 5vh;">
+            <h2><em>Authors Name:</em> <%= message.user %></h2>
+            <p><em>Message:</em> <%= message.text %> </p>
+            <a href="/messages/<%= message.id %>">Message Details</a>
+            <p><em>Date Added:</em> <%= message.added %></p>
         </section>
     <% }) %>
+    <a href="/new"><h3>Create New Message</h3></a>
 </body>
 </html>
